@@ -188,7 +188,21 @@ export default function TravelAgencyWebsite() {
             <a href="#nosotros">Nosotros</a>
             <a href="#contacto">Contacto</a>
           </nav>
+<a
+  href="https://www.instagram.com/viajessab.aviajar.gt"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Instagram
+</a>
 
+<a
+  href="https://www.facebook.com/profile.php?id=100089191766934"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Facebook
+</a>
           <div className="header-actions">
             <Button asChild className="cyan">
               <a href={excursionsUrl} target="_blank" rel="noreferrer">
