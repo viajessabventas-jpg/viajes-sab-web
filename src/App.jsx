@@ -133,9 +133,6 @@ export default function TravelAgencyWebsite() {
   const [editing, setEditing] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const instagramUrl = "https://www.instagram.com/viajessab.aviajar.gt";
-  const facebookUrl = "https://www.facebook.com/profile.php?id=100089191766934";
-
   const excursionsUrl = useMemo(
     () => whatsappLink(content.whatsappExcursions, content.excursionsMessage),
     [content.whatsappExcursions, content.excursionsMessage]
@@ -190,8 +187,6 @@ export default function TravelAgencyWebsite() {
             <a href="#servicios">Servicios</a>
             <a href="#nosotros">Nosotros</a>
             <a href="#contacto">Contacto</a>
-            <a href={instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href={facebookUrl} target="_blank" rel="noopener noreferrer">Facebook</a>
           </nav>
 
           <div className="header-actions">
@@ -215,8 +210,6 @@ export default function TravelAgencyWebsite() {
             <a href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
             <a href="#nosotros" onClick={() => setMenuOpen(false)}>Nosotros</a>
             <a href="#contacto" onClick={() => setMenuOpen(false)}>Contacto</a>
-            <a href={instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href={facebookUrl} target="_blank" rel="noopener noreferrer">Facebook</a>
             <a className="btn cyan" href={excursionsUrl} target="_blank" rel="noreferrer">WhatsApp excursiones</a>
             <button className="btn outline" onClick={() => setEditing(true)}>Editar contenido</button>
           </div>
@@ -430,48 +423,8 @@ export default function TravelAgencyWebsite() {
           <div className="about-inner">
             <div>
               <p className="eyebrow">Nosotros</p>
-              <h2>Más de 50 años creando experiencias de viaje</h2>
-              <p>
-                En Agencia de Viajes SAB creemos que viajar debe sentirse emocionante,
-                seguro y acompañado desde el primer momento. Nuestra experiencia,
-                atención personalizada y compromiso nos permiten crear soluciones
-                aéreas y turísticas adaptadas a cada cliente.
-              </p>
-
-              <div className="list-grid two">
-                <div className="list-item"><Star size={16} /><span>Más de 50 años de experiencia</span></div>
-                <div className="list-item"><Star size={16} /><span>Atención humana y personalizada</span></div>
-                <div className="list-item"><Star size={16} /><span>Soluciones aéreas y turísticas</span></div>
-                <div className="list-item"><Star size={16} /><span>Servicio honesto y confiable</span></div>
-              </div>
-
-              <div className="cards-grid two">
-                <Card>
-                  <CardContent>
-                    <p className="eyebrow">Misión</p>
-                    <h3>Viajes confiables y memorables</h3>
-                    <p>
-                      Crear experiencias de viaje confiables y memorables mediante
-                      soluciones aéreas y turísticas personalizadas, respaldadas por más
-                      de 50 años de experiencia, servicio humano y compromiso con
-                      nuestros clientes.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardContent>
-                    <p className="eyebrow">Visión</p>
-                    <h3>Liderar con confianza e innovación</h3>
-                    <p>
-                      Ser la agencia de viajes líder en confianza, servicio e innovación
-                      en Guatemala, manteniendo nuestra esencia de trabajo honesto y
-                      atención personalizada que nos ha distinguido por generaciones.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-
+              <h2>{content.sectionTitle}</h2>
+              <p>{content.sectionText}</p>
               <div className="hero-buttons">
                 <Button asChild className="dark large"><a href={flightsUrl} target="_blank" rel="noreferrer">Pedir tarifa aérea</a></Button>
                 <Button asChild className="outline-light large"><a href={excursionsUrl} target="_blank" rel="noreferrer">Ver excursiones</a></Button>
@@ -479,7 +432,7 @@ export default function TravelAgencyWebsite() {
             </div>
             <div className="about-image">
               <img src={content.aboutImage} alt="Viajeros" />
-              <div className="about-badge"><p>+50 años</p><span>creando experiencias de viaje</span></div>
+              <div className="about-badge"><p>+Experiencias</p><span>hechas a tu medida</span></div>
             </div>
           </div>
         </section>
@@ -500,8 +453,6 @@ export default function TravelAgencyWebsite() {
               <CardContent className="contact-card">
                 <Button asChild className="green full large"><a href={excursionsUrl} target="_blank" rel="noreferrer"><MessageCircle /> WhatsApp para excursiones/cruceros</a></Button>
                 <Button asChild className="cyan full large"><a href={flightsUrl} target="_blank" rel="noreferrer"><Plane /> Solicitar tarifas aéreas</a></Button>
-                <Button asChild className="outline full large"><a href={instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a></Button>
-                <Button asChild className="outline full large"><a href={facebookUrl} target="_blank" rel="noopener noreferrer">Facebook</a></Button>
                 <div className="tip">Consejo: usa formato internacional sin espacios. Ejemplo Guatemala: 50238090660.</div>
               </CardContent>
             </Card>
