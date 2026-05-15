@@ -533,5 +533,3 @@ export default function TravelAgencyWebsite() {
         </div>
       )}
     </div>
-  );
-}
