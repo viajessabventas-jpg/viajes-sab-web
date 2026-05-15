@@ -1,7 +1,7 @@
 
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Plane, MapPin, Phone, Mail, MessageCircle, Camera, Edit3, Save, X, Menu, Star, Globe2, CalendarDays } from "lucide-react";
+import { Plane, MapPin, Phone, Mail, MessageCircle, Camera, Edit3, Save, X, Menu, Star, Globe2, CalendarDays, Instagram, Facebook } from "lucide-react";
 import "./App.css";
 
 const Button = ({ children, className = "", asChild = false, ...props }) => {
@@ -20,13 +20,13 @@ const CardContent = ({ children, className = "" }) => <div className={`card-cont
 const defaultContent = {
   agencyName: "Agencia de Viajes SAB",
   slogan: "Creamos experiencias de viaje inolvidables",
-  heroTitle: "Tu pr√≥xima aventura empieza aqu√≠",
+  heroTitle: "Tu próxima aventura empieza aquí",
   heroText:
-    "Organizamos excursiones, paquetes tur√≠sticos y tarifas a√©reas para que viajes con confianza, comodidad y respaldo profesional.",
+    "Organizamos excursiones, paquetes turísticos y tarifas aéreas para que viajes con confianza, comodidad y respaldo profesional.",
   whatsappExcursions: "50238090660",
   whatsappFlights: "50257935366",
   excursionsMessage: "Hola, quiero cotizar excursiones o cruceros.",
-  flightsMessage: "Hola, quiero cotizar tarifas de boletos de avi√≥n.",
+  flightsMessage: "Hola, quiero cotizar tarifas de boletos de avión.",
   address: "Quetzaltenango, Guatemala y Guatemala, Guatemala",
   phone: "+502 3809-0660",
   email: "viajessab.ventas@gmail.com",
@@ -35,9 +35,9 @@ const defaultContent = {
     "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
   aboutImage:
     "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80",
-  sectionTitle: "Viaja f√°cil, seguro y a tu medida",
+  sectionTitle: "Viaja fácil, seguro y a tu medida",
   sectionText:
-    "Te acompa√±amos desde la idea inicial hasta tu regreso. Cotizamos rutas, hoteles, excursiones, traslados y boletos a√©reos con atenci√≥n personalizada.",
+    "Te acompañamos desde la idea inicial hasta tu regreso. Cotizamos rutas, hoteles, excursiones, traslados y boletos aéreos con atención personalizada.",
 };
 
 const defaultTours = [
@@ -52,62 +52,62 @@ const defaultTours = [
     image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1000&q=80",
   },
   {
-    title: "Tarifas a√©reas",
-    text: "Cotizaci√≥n de vuelos nacionales e internacionales seg√∫n fecha y presupuesto.",
+    title: "Tarifas aéreas",
+    text: "Cotización de vuelos nacionales e internacionales según fecha y presupuesto.",
     image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=80",
   },
 ];
 
 const featuredExcursion = {
-  title: "El Sue√±o de √Åfrica",
-  subtitle: "Safari en cami√≥n premium por Kenia, Tanzania y Zanz√≠bar",
-  duration: "15 d√≠as",
-  price: "Desde ‚Ç¨2,750 p/p",
+  title: "El Sueño de África",
+  subtitle: "Safari en camión premium por Kenia, Tanzania y Zanzíbar",
+  duration: "15 días",
+  price: "Desde €2,750 p/p",
   image: "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=80",
   highlights: [
     "Vuelos internacionales con Ethiopian Airlines desde Madrid",
-    "Gu√≠a de habla hispana durante el recorrido",
-    "Transporte en cami√≥n especialmente preparado para safari",
-    "Safari en globo sobre la Reserva Nacional de Mas√°i Mara",
-    "Hoteles seleccionados en Zanz√≠bar y Stone Town",
-    "Traslados incluidos en Zanz√≠bar",
+    "Guía de habla hispana durante el recorrido",
+    "Transporte en camión especialmente preparado para safari",
+    "Safari en globo sobre la Reserva Nacional de Masái Mara",
+    "Hoteles seleccionados en Zanzíbar y Stone Town",
+    "Traslados incluidos en Zanzíbar",
   ],
 };
 
 const localExcursions = [
   {
-    title: "Tikal 3 d√≠as / 2 noches",
-    badge: "Promoci√≥n local",
+    title: "Tikal 3 días / 2 noches",
+    badge: "Promoción local",
     price: "Desde US$358",
     image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80",
-    text: "Paquete a Tikal con vuelo Guatemala/Flores/Guatemala, 2 noches de hotel, tour compartido al Parque Nacional Tikal, admisi√≥n, gu√≠a ingl√©s/espa√±ol, almuerzo sin bebida y desayunos.",
+    text: "Paquete a Tikal con vuelo Guatemala/Flores/Guatemala, 2 noches de hotel, tour compartido al Parque Nacional Tikal, admisión, guía inglés/español, almuerzo sin bebida y desayunos.",
     includes: [
-      "Boleto a√©reo GUA/FRS/GUA con TAG",
-      "2 noches de alojamiento en hotel a elecci√≥n",
+      "Boleto aéreo GUA/FRS/GUA con TAG",
+      "2 noches de alojamiento en hotel a elección",
       "Tour compartido al Parque Nacional Tikal",
       "2 desayunos por persona",
       "Traslados aeropuerto, Tikal, hotel y Mundo Maya",
     ],
-    optionalTours: ["Cr√°ter Azul colectivo desde US$75", "Yaxh√° colectivo desde US$75"],
+    optionalTours: ["Cráter Azul colectivo desde US$75", "Yaxhá colectivo desde US$75"],
   },
 ];
 
 const europeCircuits = [
   {
-    title: "Alemania Rom√°ntica",
-    duration: "7 d√≠as",
-    price: "Desde ‚Ç¨1,410",
+    title: "Alemania Romántica",
+    duration: "7 días",
+    price: "Desde €1,410",
     image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=80",
-    cities: ["Frankfurt", "Heidelberg", "Selva Negra", "Neuschwanstein", "M√∫nich", "Nuremberg"],
+    cities: ["Frankfurt", "Heidelberg", "Selva Negra", "Neuschwanstein", "Múnich", "Nuremberg"],
     highlights: [
-      "Ruta Rom√°ntica alemana",
+      "Ruta Romántica alemana",
       "Castillo de Heidelberg",
       "Castillo de Neuschwanstein",
-      "Cena t√≠pica b√°vara en M√∫nich",
-      "Granja en la Selva Negra con degustaci√≥n de quesos",
+      "Cena típica bávara en Múnich",
+      "Granja en la Selva Negra con degustación de quesos",
     ],
     description:
-      "Circuito premium por Alemania con castillos, pueblos medievales, Selva Negra, M√∫nich y la Ruta Rom√°ntica.",
+      "Circuito premium por Alemania con castillos, pueblos medievales, Selva Negra, Múnich y la Ruta Romántica.",
   },
 ];
 
@@ -116,7 +116,7 @@ const promos = [
     title: "Gran Sale de Assist Card",
     subtitle: "Viaja seguro con descuento especial",
     discount: "40% de descuento",
-    detail: "En todos los productos Assist Card. Promoci√≥n del 11 al 31 de mayo. Aplican restricciones.",
+    detail: "En todos los productos Assist Card. Promoción del 11 al 31 de mayo. Aplican restricciones.",
     image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=900&q=80",
     cta: "Cotizar asistencia de viaje",
   },
@@ -133,6 +133,9 @@ export default function TravelAgencyWebsite() {
   const [editing, setEditing] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const instagramUrl = "https://www.instagram.com/viajessab.aviajar.gt";
+  const facebookUrl = "https://www.facebook.com/profile.php?id=100089191766934";
+
   const excursionsUrl = useMemo(
     () => whatsappLink(content.whatsappExcursions, content.excursionsMessage),
     [content.whatsappExcursions, content.excursionsMessage]
@@ -144,17 +147,17 @@ export default function TravelAgencyWebsite() {
   );
 
   const africaQuoteUrl = useMemo(
-    () => whatsappLink(content.whatsappExcursions, `Hola, quiero cotizar la excursi√≥n ${featuredExcursion.title}.`),
+    () => whatsappLink(content.whatsappExcursions, `Hola, quiero cotizar la excursión ${featuredExcursion.title}.`),
     [content.whatsappExcursions]
   );
 
   const tikalQuoteUrl = useMemo(
-    () => whatsappLink(content.whatsappExcursions, "Hola, quiero cotizar la excursi√≥n Tikal 3 d√≠as / 2 noches."),
+    () => whatsappLink(content.whatsappExcursions, "Hola, quiero cotizar la excursión Tikal 3 días / 2 noches."),
     [content.whatsappExcursions]
   );
 
   const promoQuoteUrl = useMemo(
-    () => whatsappLink(content.whatsappExcursions, "Hola, quiero cotizar la promoci√≥n de Assist Card con 40% de descuento."),
+    () => whatsappLink(content.whatsappExcursions, "Hola, quiero cotizar la promoción de Assist Card con 40% de descuento."),
     [content.whatsappExcursions]
   );
 
@@ -187,6 +190,8 @@ export default function TravelAgencyWebsite() {
             <a href="#servicios">Servicios</a>
             <a href="#nosotros">Nosotros</a>
             <a href="#contacto">Contacto</a>
+            <a href={instagramUrl} target="_blank" rel="noopener noreferrer"><Instagram size={16} /> Instagram</a>
+            <a href={facebookUrl} target="_blank" rel="noopener noreferrer"><Facebook size={16} /> Facebook</a>
           </nav>
 
           <div className="header-actions">
@@ -200,7 +205,7 @@ export default function TravelAgencyWebsite() {
             </Button>
           </div>
 
-          <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir men√∫">
+          <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir menú">
             <Menu />
           </button>
         </div>
@@ -210,6 +215,8 @@ export default function TravelAgencyWebsite() {
             <a href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
             <a href="#nosotros" onClick={() => setMenuOpen(false)}>Nosotros</a>
             <a href="#contacto" onClick={() => setMenuOpen(false)}>Contacto</a>
+            <a href={instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href={facebookUrl} target="_blank" rel="noopener noreferrer">Facebook</a>
             <a className="btn cyan" href={excursionsUrl} target="_blank" rel="noreferrer">WhatsApp excursiones</a>
             <button className="btn outline" onClick={() => setEditing(true)}>Editar contenido</button>
           </div>
@@ -219,7 +226,7 @@ export default function TravelAgencyWebsite() {
       <main id="inicio">
         <section className="hero">
           <div className="hero-bg">
-            <img src={content.heroImage} alt="Destino tur√≠stico" />
+            <img src={content.heroImage} alt="Destino turístico" />
             <div />
           </div>
 
@@ -238,7 +245,7 @@ export default function TravelAgencyWebsite() {
                 </Button>
                 <Button asChild className="outline large">
                   <a href={flightsUrl} target="_blank" rel="noreferrer">
-                    <Plane size={20} /> Solicitar tarifas a√©reas
+                    <Plane size={20} /> Solicitar tarifas aéreas
                   </a>
                 </Button>
               </div>
@@ -249,8 +256,8 @@ export default function TravelAgencyWebsite() {
                 <CardContent>
                   <div className="feature-box">
                     <Star className="cyan-icon" />
-                    <p className="feature-title">Atenci√≥n personalizada</p>
-                    <p>Cotizamos tu viaje seg√∫n fechas, presupuesto y estilo.</p>
+                    <p className="feature-title">Atención personalizada</p>
+                    <p>Cotizamos tu viaje según fechas, presupuesto y estilo.</p>
                   </div>
                   <div className="mini-grid">
                     <div className="mini-card cyan-card"><CalendarDays /> <p>Excursiones</p></div>
@@ -300,7 +307,7 @@ export default function TravelAgencyWebsite() {
         <section className="section">
           <div className="section-head">
             <div>
-              <p className="eyebrow">Excursi√≥n destacada</p>
+              <p className="eyebrow">Excursión destacada</p>
               <h2>{featuredExcursion.title}</h2>
               <p>{featuredExcursion.subtitle}</p>
             </div>
@@ -316,8 +323,8 @@ export default function TravelAgencyWebsite() {
             </div>
             <CardContent className="split-content">
               <p className="eyebrow">Safari premium</p>
-              <h3>Kenia, Tanzania y Zanz√≠bar</h3>
-              <p>Una aventura internacional con vuelos, gu√≠a en espa√±ol, safari, alojamientos seleccionados y experiencias memorables en √Åfrica.</p>
+              <h3>Kenia, Tanzania y Zanzíbar</h3>
+              <p>Una aventura internacional con vuelos, guía en español, safari, alojamientos seleccionados y experiencias memorables en África.</p>
               <div className="list-grid">
                 {featuredExcursion.highlights.map((item) => (
                   <div key={item} className="list-item"><Star size={16} /><span>{item}</span></div>
@@ -325,7 +332,7 @@ export default function TravelAgencyWebsite() {
               </div>
               <div className="hero-buttons">
                 <Button asChild className="green large">
-                  <a href={africaQuoteUrl} target="_blank" rel="noreferrer"><MessageCircle /> Cotizar esta excursi√≥n</a>
+                  <a href={africaQuoteUrl} target="_blank" rel="noreferrer"><MessageCircle /> Cotizar esta excursión</a>
                 </Button>
                 <Button asChild className="outline large">
                   <a href="#contacto">Hablar con asesor</a>
@@ -339,7 +346,7 @@ export default function TravelAgencyWebsite() {
           <div className="section-title">
             <p className="eyebrow">Excursiones locales</p>
             <h2>Guatemala lista para descubrir</h2>
-            <p>Paquetes nacionales con vuelos, hoteles, tours y atenci√≥n personalizada desde Agencia de Viajes SAB.</p>
+            <p>Paquetes nacionales con vuelos, hoteles, tours y atención personalizada desde Agencia de Viajes SAB.</p>
           </div>
 
           {localExcursions.map((tour) => (
@@ -374,7 +381,7 @@ export default function TravelAgencyWebsite() {
           <div className="section-title">
             <p className="eyebrow">Europa</p>
             <h2>Circuitos por Alemania y Alpes</h2>
-            <p>Escapadas europeas con ciudades hist√≥ricas, castillos y rutas panor√°micas.</p>
+            <p>Escapadas europeas con ciudades históricas, castillos y rutas panorámicas.</p>
           </div>
 
           <div className="cards-grid">
@@ -423,16 +430,51 @@ export default function TravelAgencyWebsite() {
           <div className="about-inner">
             <div>
               <p className="eyebrow">Nosotros</p>
-              <h2>{content.sectionTitle}</h2>
-              <p>{content.sectionText}</p>
+              <h2>Más de 50 años creando experiencias de viaje</h2>
+              <p>
+                En Agencia de Viajes SAB creemos que viajar debe sentirse emocionante, seguro y acompañado desde el primer momento.
+                Nuestra experiencia, atención personalizada y compromiso nos permiten crear soluciones aéreas y turísticas adaptadas a cada cliente.
+              </p>
+
+              <div className="list-grid two">
+                <div className="list-item"><Star size={16} /><span>Más de 50 años de experiencia</span></div>
+                <div className="list-item"><Star size={16} /><span>Atención humana y personalizada</span></div>
+                <div className="list-item"><Star size={16} /><span>Soluciones aéreas y turísticas</span></div>
+                <div className="list-item"><Star size={16} /><span>Servicio honesto y confiable</span></div>
+              </div>
+
+              <div className="cards-grid two">
+                <Card>
+                  <CardContent>
+                    <p className="eyebrow">Misión</p>
+                    <h3>Viajes confiables y memorables</h3>
+                    <p>
+                      Crear experiencias de viaje confiables y memorables mediante soluciones aéreas y turísticas personalizadas,
+                      respaldadas por más de 50 años de experiencia, servicio humano y compromiso con nuestros clientes.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardContent>
+                    <p className="eyebrow">Visión</p>
+                    <h3>Liderar con confianza e innovación</h3>
+                    <p>
+                      Ser la agencia de viajes líder en confianza, servicio e innovación en Guatemala, manteniendo nuestra esencia
+                      de trabajo honesto y atención personalizada que nos ha distinguido por generaciones.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+
               <div className="hero-buttons">
-                <Button asChild className="dark large"><a href={flightsUrl} target="_blank" rel="noreferrer">Pedir tarifa a√©rea</a></Button>
+                <Button asChild className="dark large"><a href={flightsUrl} target="_blank" rel="noreferrer">Pedir tarifa aérea</a></Button>
                 <Button asChild className="outline-light large"><a href={excursionsUrl} target="_blank" rel="noreferrer">Ver excursiones</a></Button>
               </div>
             </div>
             <div className="about-image">
               <img src={content.aboutImage} alt="Viajeros" />
-              <div className="about-badge"><p>+Experiencias</p><span>hechas a tu medida</span></div>
+              <div className="about-badge"><p>+50 años</p><span>creando experiencias de viaje</span></div>
             </div>
           </div>
         </section>
@@ -441,8 +483,8 @@ export default function TravelAgencyWebsite() {
           <div className="contact-grid">
             <div>
               <p className="eyebrow">Contacto</p>
-              <h2>Hablemos de tu pr√≥ximo viaje</h2>
-              <p>Escr√≠benos por WhatsApp para recibir atenci√≥n r√°pida.</p>
+              <h2>Hablemos de tu próximo viaje</h2>
+              <p>Escríbenos por WhatsApp para recibir atención rápida.</p>
               <div className="contact-list">
                 <div><MapPin /> {content.address}</div>
                 <div><Phone /> {content.phone}</div>
@@ -452,7 +494,7 @@ export default function TravelAgencyWebsite() {
             <Card>
               <CardContent className="contact-card">
                 <Button asChild className="green full large"><a href={excursionsUrl} target="_blank" rel="noreferrer"><MessageCircle /> WhatsApp para excursiones/cruceros</a></Button>
-                <Button asChild className="cyan full large"><a href={flightsUrl} target="_blank" rel="noreferrer"><Plane /> Solicitar tarifas a√©reas</a></Button>
+                <Button asChild className="cyan full large"><a href={flightsUrl} target="_blank" rel="noreferrer"><Plane /> Solicitar tarifas aéreas</a></Button>
                 <div className="tip">Consejo: usa formato internacional sin espacios. Ejemplo Guatemala: 50238090660.</div>
               </CardContent>
             </Card>
@@ -460,7 +502,7 @@ export default function TravelAgencyWebsite() {
         </section>
       </main>
 
-      <footer>¬© {new Date().getFullYear()} {content.agencyName}. Todos los derechos reservados.</footer>
+      <footer>© {new Date().getFullYear()} {content.agencyName}. Todos los derechos reservados.</footer>
 
       {editing && (
         <div className="modal">
@@ -468,7 +510,7 @@ export default function TravelAgencyWebsite() {
             <div className="modal-head">
               <div>
                 <h2>Editar contenido</h2>
-                <p>Cambia textos, fotos, direcci√≥n y WhatsApp.</p>
+                <p>Cambia textos, fotos, dirección y WhatsApp.</p>
               </div>
               <button onClick={cancelChanges}><X /></button>
             </div>
@@ -477,14 +519,14 @@ export default function TravelAgencyWebsite() {
               {[
                 ["agencyName", "Nombre de la agencia"],
                 ["slogan", "Frase corta"],
-                ["heroTitle", "T√≠tulo principal"],
+                ["heroTitle", "Título principal"],
                 ["whatsappExcursions", "WhatsApp excursiones/cruceros"],
-                ["whatsappFlights", "WhatsApp tarifas a√©reas"],
-                ["phone", "Tel√©fono visible"],
+                ["whatsappFlights", "WhatsApp tarifas aéreas"],
+                ["phone", "Teléfono visible"],
                 ["email", "Correo"],
-                ["address", "Direcci√≥n"],
+                ["address", "Dirección"],
                 ["heroImage", "URL foto principal"],
-                ["aboutImage", "URL foto secci√≥n nosotros"],
+                ["aboutImage", "URL foto sección nosotros"],
                 ["logo", "URL del logo"],
               ].map(([key, label]) => (
                 <label key={key}>
@@ -497,10 +539,10 @@ export default function TravelAgencyWebsite() {
             <div className="form-stack">
               {[
                 ["heroText", "Texto principal"],
-                ["sectionTitle", "T√≠tulo secci√≥n nosotros"],
-                ["sectionText", "Texto secci√≥n nosotros"],
+                ["sectionTitle", "Título sección nosotros"],
+                ["sectionText", "Texto sección nosotros"],
                 ["excursionsMessage", "Mensaje de WhatsApp para excursiones"],
-                ["flightsMessage", "Mensaje de WhatsApp para tarifas a√©reas"],
+                ["flightsMessage", "Mensaje de WhatsApp para tarifas aéreas"],
               ].map(([key, label]) => (
                 <label key={key}>
                   {label}
@@ -514,11 +556,10 @@ export default function TravelAgencyWebsite() {
               <Button className="dark" onClick={saveChanges}><Save size={16} /> Guardar cambios</Button>
             </div>
 
-            <div className="edit-tip"><Camera /> Para cambiar fotos, pega una URL de imagen. En una versi√≥n profesional podemos conectar carga directa de im√°genes.</div>
+            <div className="edit-tip"><Camera /> Para cambiar fotos, pega una URL de imagen. En una versión profesional podemos conectar carga directa de imágenes.</div>
           </div>
         </div>
       )}
     </div>
   );
 }
-
