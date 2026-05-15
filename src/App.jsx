@@ -1,7 +1,7 @@
 
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Plane, MapPin, Phone, Mail, MessageCircle, Camera, Edit3, Save, X, Menu, Star, Globe2, CalendarDays, Instagram, Facebook } from "lucide-react";
+import { Plane, MapPin, Phone, Mail, MessageCircle, Camera, Edit3, Save, X, Menu, Star, Globe2, CalendarDays } from "lucide-react";
 import "./App.css";
 
 const Button = ({ children, className = "", asChild = false, ...props }) => {
@@ -190,8 +190,8 @@ export default function TravelAgencyWebsite() {
             <a href="#servicios">Servicios</a>
             <a href="#nosotros">Nosotros</a>
             <a href="#contacto">Contacto</a>
-            <a href={instagramUrl} target="_blank" rel="noopener noreferrer"><Instagram size={16} /> Instagram</a>
-            <a href={facebookUrl} target="_blank" rel="noopener noreferrer"><Facebook size={16} /> Facebook</a>
+            <a href={instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href={facebookUrl} target="_blank" rel="noopener noreferrer">Facebook</a>
           </nav>
 
           <div className="header-actions">
@@ -432,8 +432,10 @@ export default function TravelAgencyWebsite() {
               <p className="eyebrow">Nosotros</p>
               <h2>Más de 50 años creando experiencias de viaje</h2>
               <p>
-                En Agencia de Viajes SAB creemos que viajar debe sentirse emocionante, seguro y acompañado desde el primer momento.
-                Nuestra experiencia, atención personalizada y compromiso nos permiten crear soluciones aéreas y turísticas adaptadas a cada cliente.
+                En Agencia de Viajes SAB creemos que viajar debe sentirse emocionante,
+                seguro y acompañado desde el primer momento. Nuestra experiencia,
+                atención personalizada y compromiso nos permiten crear soluciones
+                aéreas y turísticas adaptadas a cada cliente.
               </p>
 
               <div className="list-grid two">
@@ -449,8 +451,10 @@ export default function TravelAgencyWebsite() {
                     <p className="eyebrow">Misión</p>
                     <h3>Viajes confiables y memorables</h3>
                     <p>
-                      Crear experiencias de viaje confiables y memorables mediante soluciones aéreas y turísticas personalizadas,
-                      respaldadas por más de 50 años de experiencia, servicio humano y compromiso con nuestros clientes.
+                      Crear experiencias de viaje confiables y memorables mediante
+                      soluciones aéreas y turísticas personalizadas, respaldadas por más
+                      de 50 años de experiencia, servicio humano y compromiso con
+                      nuestros clientes.
                     </p>
                   </CardContent>
                 </Card>
@@ -460,8 +464,9 @@ export default function TravelAgencyWebsite() {
                     <p className="eyebrow">Visión</p>
                     <h3>Liderar con confianza e innovación</h3>
                     <p>
-                      Ser la agencia de viajes líder en confianza, servicio e innovación en Guatemala, manteniendo nuestra esencia
-                      de trabajo honesto y atención personalizada que nos ha distinguido por generaciones.
+                      Ser la agencia de viajes líder en confianza, servicio e innovación
+                      en Guatemala, manteniendo nuestra esencia de trabajo honesto y
+                      atención personalizada que nos ha distinguido por generaciones.
                     </p>
                   </CardContent>
                 </Card>
@@ -495,6 +500,8 @@ export default function TravelAgencyWebsite() {
               <CardContent className="contact-card">
                 <Button asChild className="green full large"><a href={excursionsUrl} target="_blank" rel="noreferrer"><MessageCircle /> WhatsApp para excursiones/cruceros</a></Button>
                 <Button asChild className="cyan full large"><a href={flightsUrl} target="_blank" rel="noreferrer"><Plane /> Solicitar tarifas aéreas</a></Button>
+                <Button asChild className="outline full large"><a href={instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a></Button>
+                <Button asChild className="outline full large"><a href={facebookUrl} target="_blank" rel="noopener noreferrer">Facebook</a></Button>
                 <div className="tip">Consejo: usa formato internacional sin espacios. Ejemplo Guatemala: 50238090660.</div>
               </CardContent>
             </Card>
