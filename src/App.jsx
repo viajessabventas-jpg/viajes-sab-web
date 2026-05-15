@@ -183,27 +183,11 @@ export default function TravelAgencyWebsite() {
           </a>
 
           <nav className="nav">
-  <a href="#promos">Promos</a>
-  <a href="#servicios">Servicios</a>
-  <a href="#nosotros">Nosotros</a>
-  <a href="#contacto">Contacto</a>
-
-  <a
-    href="https://www.instagram.com/viajessab.aviajar.gt"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Instagram
-  </a>
-
-  <a
-    href="https://www.facebook.com/profile.php?id=100089191766934"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Facebook
-  </a>
-</nav>
+            <a href="#promos">Promos</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+          </nav>
 
           <div className="header-actions">
             <Button asChild className="cyan">
@@ -441,31 +425,6 @@ export default function TravelAgencyWebsite() {
               <p className="eyebrow">Nosotros</p>
               <h2>{content.sectionTitle}</h2>
               <p>{content.sectionText}</p>
-              <div className="cards-grid two">
-  <Card>
-    <CardContent>
-      <p className="eyebrow">Misión</p>
-
-      <p>
-        Crear experiencias de viaje confiables y memorables mediante
-        soluciones aéreas y turísticas personalizadas, respaldadas por más
-        de 50 años de experiencia, servicio humano y compromiso con nuestros clientes.
-      </p>
-    </CardContent>
-  </Card>
-
-  <Card>
-    <CardContent>
-      <p className="eyebrow">Visión</p>
-
-      <p>
-        Ser la agencia de viajes líder en confianza, servicio e innovación
-        en Guatemala, manteniendo nuestra esencia de trabajo honesto y
-        atención personalizada que nos ha distinguido por generaciones.
-      </p>
-    </CardContent>
-  </Card>
-</div>
               <div className="hero-buttons">
                 <Button asChild className="dark large"><a href={flightsUrl} target="_blank" rel="noreferrer">Pedir tarifa aérea</a></Button>
                 <Button asChild className="outline-light large"><a href={excursionsUrl} target="_blank" rel="noreferrer">Ver excursiones</a></Button>
