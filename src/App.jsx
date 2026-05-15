@@ -1,22 +1,7 @@
+
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import {
-  Plane,
-  MapPin,
-  Phone,
-  Mail,
-  MessageCircle,
-  Camera,
-  Edit3,
-  Save,
-  X,
-  Menu,
-  Star,
-  Globe2,
-  CalendarDays,
-  Instagram,
-  Facebook,
-} from "lucide-react";
+import { Plane, MapPin, Phone, Mail, MessageCircle, Camera, Edit3, Save, X, Menu, Star, Globe2, CalendarDays } from "lucide-react";
 import "./App.css";
 
 const Button = ({ children, className = "", asChild = false, ...props }) => {
@@ -26,31 +11,22 @@ const Button = ({ children, className = "", asChild = false, ...props }) => {
       ...props,
     });
   }
-  return (
-    <button className={`btn ${className}`} {...props}>
-      {children}
-    </button>
-  );
+  return <button className={`btn ${className}`} {...props}>{children}</button>;
 };
 
-const Card = ({ children, className = "" }) => (
-  <div className={`card ${className}`}>{children}</div>
-);
-
-const CardContent = ({ children, className = "" }) => (
-  <div className={`card-content ${className}`}>{children}</div>
-);
+const Card = ({ children, className = "" }) => <div className={`card ${className}`}>{children}</div>;
+const CardContent = ({ children, className = "" }) => <div className={`card-content ${className}`}>{children}</div>;
 
 const defaultContent = {
   agencyName: "Agencia de Viajes SAB",
   slogan: "Creamos experiencias de viaje inolvidables",
-  heroTitle: "Tu próxima aventura empieza aquí",
+  heroTitle: "Tu pr√≥xima aventura empieza aqu√≠",
   heroText:
-    "Organizamos excursiones, paquetes turísticos y tarifas aéreas para que viajes con confianza, comodidad y respaldo profesional.",
+    "Organizamos excursiones, paquetes tur√≠sticos y tarifas a√©reas para que viajes con confianza, comodidad y respaldo profesional.",
   whatsappExcursions: "50238090660",
   whatsappFlights: "50257935366",
   excursionsMessage: "Hola, quiero cotizar excursiones o cruceros.",
-  flightsMessage: "Hola, quiero cotizar tarifas de boletos de avión.",
+  flightsMessage: "Hola, quiero cotizar tarifas de boletos de avi√≥n.",
   address: "Quetzaltenango, Guatemala y Guatemala, Guatemala",
   phone: "+502 3809-0660",
   email: "viajessab.ventas@gmail.com",
@@ -59,93 +35,79 @@ const defaultContent = {
     "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
   aboutImage:
     "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80",
-  sectionTitle: "Más de 50 años creando experiencias de viaje",
+  sectionTitle: "Viaja f√°cil, seguro y a tu medida",
   sectionText:
-    "En Agencia de Viajes SAB creemos que viajar debe sentirse emocionante, seguro y acompañado desde el primer momento. Nuestra experiencia, atención personalizada y compromiso nos permiten crear soluciones aéreas y turísticas adaptadas a cada cliente.",
+    "Te acompa√±amos desde la idea inicial hasta tu regreso. Cotizamos rutas, hoteles, excursiones, traslados y boletos a√©reos con atenci√≥n personalizada.",
 };
 
 const defaultTours = [
   {
     title: "Excursiones locales",
     text: "Tours culturales, naturaleza, aventura y escapadas de fin de semana.",
-    image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80",
   },
   {
     title: "Paquetes internacionales",
     text: "Destinos familiares, luna de miel, viajes grupales y experiencias premium.",
-    image:
-      "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1000&q=80",
   },
   {
-    title: "Tarifas aéreas",
-    text: "Cotización de vuelos nacionales e internacionales según fecha y presupuesto.",
-    image:
-      "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=80",
+    title: "Tarifas a√©reas",
+    text: "Cotizaci√≥n de vuelos nacionales e internacionales seg√∫n fecha y presupuesto.",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1000&q=80",
   },
 ];
 
 const featuredExcursion = {
-  title: "El Sueño de África",
-  subtitle: "Safari en camión premium por Kenia, Tanzania y Zanzíbar",
-  duration: "15 días",
-  price: "Desde €2,750 p/p",
-  image:
-    "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=80",
+  title: "El Sue√±o de √Åfrica",
+  subtitle: "Safari en cami√≥n premium por Kenia, Tanzania y Zanz√≠bar",
+  duration: "15 d√≠as",
+  price: "Desde ‚Ç¨2,750 p/p",
+  image: "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1200&q=80",
   highlights: [
     "Vuelos internacionales con Ethiopian Airlines desde Madrid",
-    "Guía de habla hispana durante el recorrido",
-    "Transporte en camión especialmente preparado para safari",
-    "Safari en globo sobre la Reserva Nacional de Masái Mara",
-    "Hoteles seleccionados en Zanzíbar y Stone Town",
-    "Traslados incluidos en Zanzíbar",
+    "Gu√≠a de habla hispana durante el recorrido",
+    "Transporte en cami√≥n especialmente preparado para safari",
+    "Safari en globo sobre la Reserva Nacional de Mas√°i Mara",
+    "Hoteles seleccionados en Zanz√≠bar y Stone Town",
+    "Traslados incluidos en Zanz√≠bar",
   ],
 };
 
 const localExcursions = [
   {
-    title: "Tikal 3 días / 2 noches",
-    badge: "Promoción local",
+    title: "Tikal 3 d√≠as / 2 noches",
+    badge: "Promoci√≥n local",
     price: "Desde US$358",
-    image:
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80",
-    text:
-      "Paquete a Tikal con vuelo Guatemala/Flores/Guatemala, 2 noches de hotel, tour compartido al Parque Nacional Tikal, admisión, guía inglés/español, almuerzo sin bebida y desayunos.",
+    image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80",
+    text: "Paquete a Tikal con vuelo Guatemala/Flores/Guatemala, 2 noches de hotel, tour compartido al Parque Nacional Tikal, admisi√≥n, gu√≠a ingl√©s/espa√±ol, almuerzo sin bebida y desayunos.",
     includes: [
-      "Boleto aéreo GUA/FRS/GUA con TAG",
-      "2 noches de alojamiento en hotel a elección",
+      "Boleto a√©reo GUA/FRS/GUA con TAG",
+      "2 noches de alojamiento en hotel a elecci√≥n",
       "Tour compartido al Parque Nacional Tikal",
       "2 desayunos por persona",
       "Traslados aeropuerto, Tikal, hotel y Mundo Maya",
     ],
-    optionalTours: ["Cráter Azul colectivo desde US$75", "Yaxhá colectivo desde US$75"],
+    optionalTours: ["Cr√°ter Azul colectivo desde US$75", "Yaxh√° colectivo desde US$75"],
   },
 ];
 
 const europeCircuits = [
   {
-    title: "Alemania Romántica",
-    duration: "7 días",
-    price: "Desde €1,410",
-    image:
-      "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=80",
-    cities: [
-      "Frankfurt",
-      "Heidelberg",
-      "Selva Negra",
-      "Neuschwanstein",
-      "Múnich",
-      "Nuremberg",
-    ],
+    title: "Alemania Rom√°ntica",
+    duration: "7 d√≠as",
+    price: "Desde ‚Ç¨1,410",
+    image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=80",
+    cities: ["Frankfurt", "Heidelberg", "Selva Negra", "Neuschwanstein", "M√∫nich", "Nuremberg"],
     highlights: [
-      "Ruta Romántica alemana",
+      "Ruta Rom√°ntica alemana",
       "Castillo de Heidelberg",
       "Castillo de Neuschwanstein",
-      "Cena típica bávara en Múnich",
-      "Granja en la Selva Negra con degustación de quesos",
+      "Cena t√≠pica b√°vara en M√∫nich",
+      "Granja en la Selva Negra con degustaci√≥n de quesos",
     ],
     description:
-      "Circuito premium por Alemania con castillos, pueblos medievales, Selva Negra, Múnich y la Ruta Romántica.",
+      "Circuito premium por Alemania con castillos, pueblos medievales, Selva Negra, M√∫nich y la Ruta Rom√°ntica.",
   },
 ];
 
@@ -154,10 +116,8 @@ const promos = [
     title: "Gran Sale de Assist Card",
     subtitle: "Viaja seguro con descuento especial",
     discount: "40% de descuento",
-    detail:
-      "En todos los productos Assist Card. Promoción del 11 al 31 de mayo. Aplican restricciones.",
-    image:
-      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=900&q=80",
+    detail: "En todos los productos Assist Card. Promoci√≥n del 11 al 31 de mayo. Aplican restricciones.",
+    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=900&q=80",
     cta: "Cotizar asistencia de viaje",
   },
 ];
@@ -173,9 +133,6 @@ export default function TravelAgencyWebsite() {
   const [editing, setEditing] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const instagramUrl = "https://www.instagram.com/viajessab.aviajar.gt";
-  const facebookUrl = "https://www.facebook.com/profile.php?id=100089191766934";
-
   const excursionsUrl = useMemo(
     () => whatsappLink(content.whatsappExcursions, content.excursionsMessage),
     [content.whatsappExcursions, content.excursionsMessage]
@@ -187,34 +144,21 @@ export default function TravelAgencyWebsite() {
   );
 
   const africaQuoteUrl = useMemo(
-    () =>
-      whatsappLink(
-        content.whatsappExcursions,
-        `Hola, quiero cotizar la excursión ${featuredExcursion.title}.`
-      ),
+    () => whatsappLink(content.whatsappExcursions, `Hola, quiero cotizar la excursi√≥n ${featuredExcursion.title}.`),
     [content.whatsappExcursions]
   );
 
   const tikalQuoteUrl = useMemo(
-    () =>
-      whatsappLink(
-        content.whatsappExcursions,
-        "Hola, quiero cotizar la excursión Tikal 3 días / 2 noches."
-      ),
+    () => whatsappLink(content.whatsappExcursions, "Hola, quiero cotizar la excursi√≥n Tikal 3 d√≠as / 2 noches."),
     [content.whatsappExcursions]
   );
 
   const promoQuoteUrl = useMemo(
-    () =>
-      whatsappLink(
-        content.whatsappExcursions,
-        "Hola, quiero cotizar la promoción de Assist Card con 40% de descuento."
-      ),
+    () => whatsappLink(content.whatsappExcursions, "Hola, quiero cotizar la promoci√≥n de Assist Card con 40% de descuento."),
     [content.whatsappExcursions]
   );
 
-  const updateDraft = (key, value) =>
-    setDraft((prev) => ({ ...prev, [key]: value }));
+  const updateDraft = (key, value) => setDraft((prev) => ({ ...prev, [key]: value }));
 
   const saveChanges = () => {
     setContent(draft);
@@ -231,11 +175,7 @@ export default function TravelAgencyWebsite() {
       <header className="header">
         <div className="header-inner">
           <a href="#inicio" className="brand">
-            <img
-              src={content.logo}
-              alt="Logo Agencia de Viajes SAB"
-              className="logo"
-            />
+            <img src={content.logo} alt="Logo Agencia de Viajes SAB" className="logo" />
             <div>
               <p className="brand-name">{content.agencyName}</p>
               <p className="brand-subtitle">Agencia de viajes</p>
@@ -247,12 +187,6 @@ export default function TravelAgencyWebsite() {
             <a href="#servicios">Servicios</a>
             <a href="#nosotros">Nosotros</a>
             <a href="#contacto">Contacto</a>
-            <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
-              <Instagram size={16} /> Instagram
-            </a>
-            <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
-              <Facebook size={16} /> Facebook
-            </a>
           </nav>
 
           <div className="header-actions">
@@ -266,46 +200,18 @@ export default function TravelAgencyWebsite() {
             </Button>
           </div>
 
-          <button
-            className="menu-button"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Abrir menú"
-          >
+          <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Abrir men√∫">
             <Menu />
           </button>
         </div>
-
         {menuOpen && (
           <div className="mobile-menu">
-            <a href="#promos" onClick={() => setMenuOpen(false)}>
-              Promos
-            </a>
-            <a href="#servicios" onClick={() => setMenuOpen(false)}>
-              Servicios
-            </a>
-            <a href="#nosotros" onClick={() => setMenuOpen(false)}>
-              Nosotros
-            </a>
-            <a href="#contacto" onClick={() => setMenuOpen(false)}>
-              Contacto
-            </a>
-            <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
-              Instagram
-            </a>
-            <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
-              Facebook
-            </a>
-            <a
-              className="btn cyan"
-              href={excursionsUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              WhatsApp excursiones
-            </a>
-            <button className="btn outline" onClick={() => setEditing(true)}>
-              Editar contenido
-            </button>
+            <a href="#promos" onClick={() => setMenuOpen(false)}>Promos</a>
+            <a href="#servicios" onClick={() => setMenuOpen(false)}>Servicios</a>
+            <a href="#nosotros" onClick={() => setMenuOpen(false)}>Nosotros</a>
+            <a href="#contacto" onClick={() => setMenuOpen(false)}>Contacto</a>
+            <a className="btn cyan" href={excursionsUrl} target="_blank" rel="noreferrer">WhatsApp excursiones</a>
+            <button className="btn outline" onClick={() => setEditing(true)}>Editar contenido</button>
           </div>
         )}
       </header>
@@ -313,16 +219,12 @@ export default function TravelAgencyWebsite() {
       <main id="inicio">
         <section className="hero">
           <div className="hero-bg">
-            <img src={content.heroImage} alt="Destino turístico" />
+            <img src={content.heroImage} alt="Destino tur√≠stico" />
             <div />
           </div>
 
           <div className="hero-inner">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-            >
+            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
               <div className="pill">
                 <Globe2 size={16} /> {content.slogan}
               </div>
@@ -336,32 +238,23 @@ export default function TravelAgencyWebsite() {
                 </Button>
                 <Button asChild className="outline large">
                   <a href={flightsUrl} target="_blank" rel="noreferrer">
-                    <Plane size={20} /> Solicitar tarifas aéreas
+                    <Plane size={20} /> Solicitar tarifas a√©reas
                   </a>
                 </Button>
               </div>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-              className="hero-card-wrap"
-            >
+            <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.15 }} className="hero-card-wrap">
               <Card className="glass">
                 <CardContent>
                   <div className="feature-box">
                     <Star className="cyan-icon" />
-                    <p className="feature-title">Atención personalizada</p>
-                    <p>Cotizamos tu viaje según fechas, presupuesto y estilo.</p>
+                    <p className="feature-title">Atenci√≥n personalizada</p>
+                    <p>Cotizamos tu viaje seg√∫n fechas, presupuesto y estilo.</p>
                   </div>
                   <div className="mini-grid">
-                    <div className="mini-card cyan-card">
-                      <CalendarDays /> <p>Excursiones</p>
-                    </div>
-                    <div className="mini-card white-card">
-                      <Plane /> <p>Vuelos</p>
-                    </div>
+                    <div className="mini-card cyan-card"><CalendarDays /> <p>Excursiones</p></div>
+                    <div className="mini-card white-card"><Plane /> <p>Vuelos</p></div>
                   </div>
                 </CardContent>
               </Card>
@@ -377,9 +270,7 @@ export default function TravelAgencyWebsite() {
               <p>Promociones especiales disponibles por tiempo limitado.</p>
             </div>
             <Button asChild className="red-btn large">
-              <a href={promoQuoteUrl} target="_blank" rel="noreferrer">
-                <MessageCircle /> Cotizar promo
-              </a>
+              <a href={promoQuoteUrl} target="_blank" rel="noreferrer"><MessageCircle /> Cotizar promo</a>
             </Button>
           </div>
 
@@ -395,9 +286,7 @@ export default function TravelAgencyWebsite() {
                 <p>{promos[0].detail}</p>
                 <div className="hero-buttons">
                   <Button asChild className="white-btn large">
-                    <a href={promoQuoteUrl} target="_blank" rel="noreferrer">
-                      <MessageCircle /> {promos[0].cta}
-                    </a>
+                    <a href={promoQuoteUrl} target="_blank" rel="noreferrer"><MessageCircle /> {promos[0].cta}</a>
                   </Button>
                   <Button asChild className="outline large">
                     <a href="#contacto">Hablar con asesor</a>
@@ -411,7 +300,7 @@ export default function TravelAgencyWebsite() {
         <section className="section">
           <div className="section-head">
             <div>
-              <p className="eyebrow">Excursión destacada</p>
+              <p className="eyebrow">Excursi√≥n destacada</p>
               <h2>{featuredExcursion.title}</h2>
               <p>{featuredExcursion.subtitle}</p>
             </div>
@@ -427,24 +316,16 @@ export default function TravelAgencyWebsite() {
             </div>
             <CardContent className="split-content">
               <p className="eyebrow">Safari premium</p>
-              <h3>Kenia, Tanzania y Zanzíbar</h3>
-              <p>
-                Una aventura internacional con vuelos, guía en español, safari,
-                alojamientos seleccionados y experiencias memorables en África.
-              </p>
+              <h3>Kenia, Tanzania y Zanz√≠bar</h3>
+              <p>Una aventura internacional con vuelos, gu√≠a en espa√±ol, safari, alojamientos seleccionados y experiencias memorables en √Åfrica.</p>
               <div className="list-grid">
                 {featuredExcursion.highlights.map((item) => (
-                  <div key={item} className="list-item">
-                    <Star size={16} />
-                    <span>{item}</span>
-                  </div>
+                  <div key={item} className="list-item"><Star size={16} /><span>{item}</span></div>
                 ))}
               </div>
               <div className="hero-buttons">
                 <Button asChild className="green large">
-                  <a href={africaQuoteUrl} target="_blank" rel="noreferrer">
-                    <MessageCircle /> Cotizar esta excursión
-                  </a>
+                  <a href={africaQuoteUrl} target="_blank" rel="noreferrer"><MessageCircle /> Cotizar esta excursi√≥n</a>
                 </Button>
                 <Button asChild className="outline large">
                   <a href="#contacto">Hablar con asesor</a>
@@ -458,44 +339,31 @@ export default function TravelAgencyWebsite() {
           <div className="section-title">
             <p className="eyebrow">Excursiones locales</p>
             <h2>Guatemala lista para descubrir</h2>
-            <p>
-              Paquetes nacionales con vuelos, hoteles, tours y atención
-              personalizada desde Agencia de Viajes SAB.
-            </p>
+            <p>Paquetes nacionales con vuelos, hoteles, tours y atenci√≥n personalizada desde Agencia de Viajes SAB.</p>
           </div>
 
           {localExcursions.map((tour) => (
             <Card key={tour.title} className="split-card">
               <div className="split-image">
                 <img src={tour.image} alt={tour.title} />
-                <div className="image-badges">
-                  <span>{tour.badge}</span>
-                  <span>{tour.price}</span>
-                </div>
+                <div className="image-badges"><span>{tour.badge}</span><span>{tour.price}</span></div>
               </div>
               <CardContent className="split-content">
                 <h3>{tour.title}</h3>
                 <p>{tour.text}</p>
                 <div className="list-grid two">
                   {tour.includes.map((item) => (
-                    <div key={item} className="list-item">
-                      <Star size={16} />
-                      <span>{item}</span>
-                    </div>
+                    <div key={item} className="list-item"><Star size={16} /><span>{item}</span></div>
                   ))}
                 </div>
                 <div className="optional-box">
                   <p>Tours opcionales</p>
                   <div>
-                    {tour.optionalTours.map((item) => (
-                      <span key={item}>{item}</span>
-                    ))}
+                    {tour.optionalTours.map((item) => <span key={item}>{item}</span>)}
                   </div>
                 </div>
                 <Button asChild className="green large">
-                  <a href={tikalQuoteUrl} target="_blank" rel="noreferrer">
-                    <MessageCircle /> Cotizar Tikal por WhatsApp
-                  </a>
+                  <a href={tikalQuoteUrl} target="_blank" rel="noreferrer"><MessageCircle /> Cotizar Tikal por WhatsApp</a>
                 </Button>
               </CardContent>
             </Card>
@@ -506,10 +374,7 @@ export default function TravelAgencyWebsite() {
           <div className="section-title">
             <p className="eyebrow">Europa</p>
             <h2>Circuitos por Alemania y Alpes</h2>
-            <p>
-              Escapadas europeas con ciudades históricas, castillos y rutas
-              panorámicas.
-            </p>
+            <p>Escapadas europeas con ciudades hist√≥ricas, castillos y rutas panor√°micas.</p>
           </div>
 
           <div className="cards-grid">
@@ -517,32 +382,18 @@ export default function TravelAgencyWebsite() {
               <Card key={trip.title} className="tour-card">
                 <div className="tour-image">
                   <img src={trip.image} alt={trip.title} />
-                  <div className="image-badges">
-                    <span>{trip.duration}</span>
-                    <span>{trip.price}</span>
-                  </div>
+                  <div className="image-badges"><span>{trip.duration}</span><span>{trip.price}</span></div>
                 </div>
                 <CardContent>
                   <p className="eyebrow">Europa Premium</p>
                   <h3>{trip.title}</h3>
                   <p>{trip.description}</p>
-                  <div className="chips">
-                    {trip.cities.map((city) => (
-                      <span key={city}>{city}</span>
-                    ))}
-                  </div>
+                  <div className="chips">{trip.cities.map((city) => <span key={city}>{city}</span>)}</div>
                   <div className="list-grid">
-                    {trip.highlights.map((item) => (
-                      <div key={item} className="list-item">
-                        <Star size={16} />
-                        <span>{item}</span>
-                      </div>
-                    ))}
+                    {trip.highlights.map((item) => <div key={item} className="list-item"><Star size={16} /><span>{item}</span></div>)}
                   </div>
                   <Button asChild className="green large">
-                    <a href={excursionsUrl} target="_blank" rel="noreferrer">
-                      <MessageCircle /> Cotizar circuito Alemania
-                    </a>
+                    <a href={excursionsUrl} target="_blank" rel="noreferrer"><MessageCircle /> Cotizar circuito Alemania</a>
                   </Button>
                 </CardContent>
               </Card>
@@ -574,74 +425,14 @@ export default function TravelAgencyWebsite() {
               <p className="eyebrow">Nosotros</p>
               <h2>{content.sectionTitle}</h2>
               <p>{content.sectionText}</p>
-
-              <div className="list-grid two">
-                <div className="list-item">
-                  <Star size={16} />
-                  <span>Más de 50 años de experiencia</span>
-                </div>
-                <div className="list-item">
-                  <Star size={16} />
-                  <span>Atención humana y personalizada</span>
-                </div>
-                <div className="list-item">
-                  <Star size={16} />
-                  <span>Soluciones aéreas y turísticas</span>
-                </div>
-                <div className="list-item">
-                  <Star size={16} />
-                  <span>Servicio honesto y confiable</span>
-                </div>
-              </div>
-
-              <div className="cards-grid two">
-                <Card>
-                  <CardContent>
-                    <p className="eyebrow">Misión</p>
-                    <h3>Viajes confiables y memorables</h3>
-                    <p>
-                      Crear experiencias de viaje confiables y memorables
-                      mediante soluciones aéreas y turísticas personalizadas,
-                      respaldadas por más de 50 años de experiencia, servicio
-                      humano y compromiso con nuestros clientes.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardContent>
-                    <p className="eyebrow">Visión</p>
-                    <h3>Liderar con confianza e innovación</h3>
-                    <p>
-                      Ser la agencia de viajes líder en confianza, servicio e
-                      innovación en Guatemala, manteniendo nuestra esencia de
-                      trabajo honesto y atención personalizada que nos ha
-                      distinguido por generaciones.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-
               <div className="hero-buttons">
-                <Button asChild className="dark large">
-                  <a href={flightsUrl} target="_blank" rel="noreferrer">
-                    Pedir tarifa aérea
-                  </a>
-                </Button>
-                <Button asChild className="outline-light large">
-                  <a href={excursionsUrl} target="_blank" rel="noreferrer">
-                    Ver excursiones
-                  </a>
-                </Button>
+                <Button asChild className="dark large"><a href={flightsUrl} target="_blank" rel="noreferrer">Pedir tarifa a√©rea</a></Button>
+                <Button asChild className="outline-light large"><a href={excursionsUrl} target="_blank" rel="noreferrer">Ver excursiones</a></Button>
               </div>
             </div>
-
             <div className="about-image">
               <img src={content.aboutImage} alt="Viajeros" />
-              <div className="about-badge">
-                <p>+50 años</p>
-                <span>creando experiencias de viaje</span>
-              </div>
+              <div className="about-badge"><p>+Experiencias</p><span>hechas a tu medida</span></div>
             </div>
           </div>
         </section>
@@ -650,56 +441,26 @@ export default function TravelAgencyWebsite() {
           <div className="contact-grid">
             <div>
               <p className="eyebrow">Contacto</p>
-              <h2>Hablemos de tu próximo viaje</h2>
-              <p>Escríbenos por WhatsApp para recibir atención rápida.</p>
+              <h2>Hablemos de tu pr√≥ximo viaje</h2>
+              <p>Escr√≠benos por WhatsApp para recibir atenci√≥n r√°pida.</p>
               <div className="contact-list">
-                <div>
-                  <MapPin /> {content.address}
-                </div>
-                <div>
-                  <Phone /> {content.phone}
-                </div>
-                <div>
-                  <Mail /> {content.email}
-                </div>
+                <div><MapPin /> {content.address}</div>
+                <div><Phone /> {content.phone}</div>
+                <div><Mail /> {content.email}</div>
               </div>
             </div>
             <Card>
               <CardContent className="contact-card">
-                <Button asChild className="green full large">
-                  <a href={excursionsUrl} target="_blank" rel="noreferrer">
-                    <MessageCircle /> WhatsApp para excursiones/cruceros
-                  </a>
-                </Button>
-                <Button asChild className="cyan full large">
-                  <a href={flightsUrl} target="_blank" rel="noreferrer">
-                    <Plane /> Solicitar tarifas aéreas
-                  </a>
-                </Button>
-                <Button asChild className="outline full large">
-                  <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
-                    <Instagram /> Ver Instagram
-                  </a>
-                </Button>
-                <Button asChild className="outline full large">
-                  <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
-                    <Facebook /> Ver Facebook
-                  </a>
-                </Button>
-                <div className="tip">
-                  Consejo: usa formato internacional sin espacios. Ejemplo
-                  Guatemala: 50238090660.
-                </div>
+                <Button asChild className="green full large"><a href={excursionsUrl} target="_blank" rel="noreferrer"><MessageCircle /> WhatsApp para excursiones/cruceros</a></Button>
+                <Button asChild className="cyan full large"><a href={flightsUrl} target="_blank" rel="noreferrer"><Plane /> Solicitar tarifas a√©reas</a></Button>
+                <div className="tip">Consejo: usa formato internacional sin espacios. Ejemplo Guatemala: 50238090660.</div>
               </CardContent>
             </Card>
           </div>
         </section>
       </main>
 
-      <footer>
-        © {new Date().getFullYear()} {content.agencyName}. Todos los derechos
-        reservados.
-      </footer>
+      <footer>¬© {new Date().getFullYear()} {content.agencyName}. Todos los derechos reservados.</footer>
 
       {editing && (
         <div className="modal">
@@ -707,33 +468,28 @@ export default function TravelAgencyWebsite() {
             <div className="modal-head">
               <div>
                 <h2>Editar contenido</h2>
-                <p>Cambia textos, fotos, dirección y WhatsApp.</p>
+                <p>Cambia textos, fotos, direcci√≥n y WhatsApp.</p>
               </div>
-              <button onClick={cancelChanges}>
-                <X />
-              </button>
+              <button onClick={cancelChanges}><X /></button>
             </div>
 
             <div className="form-grid">
               {[
                 ["agencyName", "Nombre de la agencia"],
                 ["slogan", "Frase corta"],
-                ["heroTitle", "Título principal"],
+                ["heroTitle", "T√≠tulo principal"],
                 ["whatsappExcursions", "WhatsApp excursiones/cruceros"],
-                ["whatsappFlights", "WhatsApp tarifas aéreas"],
-                ["phone", "Teléfono visible"],
+                ["whatsappFlights", "WhatsApp tarifas a√©reas"],
+                ["phone", "Tel√©fono visible"],
                 ["email", "Correo"],
-                ["address", "Dirección"],
+                ["address", "Direcci√≥n"],
                 ["heroImage", "URL foto principal"],
-                ["aboutImage", "URL foto sección nosotros"],
+                ["aboutImage", "URL foto secci√≥n nosotros"],
                 ["logo", "URL del logo"],
               ].map(([key, label]) => (
                 <label key={key}>
                   {label}
-                  <input
-                    value={draft[key]}
-                    onChange={(e) => updateDraft(key, e.target.value)}
-                  />
+                  <input value={draft[key]} onChange={(e) => updateDraft(key, e.target.value)} />
                 </label>
               ))}
             </div>
@@ -741,38 +497,28 @@ export default function TravelAgencyWebsite() {
             <div className="form-stack">
               {[
                 ["heroText", "Texto principal"],
-                ["sectionTitle", "Título sección nosotros"],
-                ["sectionText", "Texto sección nosotros"],
+                ["sectionTitle", "T√≠tulo secci√≥n nosotros"],
+                ["sectionText", "Texto secci√≥n nosotros"],
                 ["excursionsMessage", "Mensaje de WhatsApp para excursiones"],
-                ["flightsMessage", "Mensaje de WhatsApp para tarifas aéreas"],
+                ["flightsMessage", "Mensaje de WhatsApp para tarifas a√©reas"],
               ].map(([key, label]) => (
                 <label key={key}>
                   {label}
-                  <textarea
-                    value={draft[key]}
-                    onChange={(e) => updateDraft(key, e.target.value)}
-                    rows={3}
-                  />
+                  <textarea value={draft[key]} onChange={(e) => updateDraft(key, e.target.value)} rows={3} />
                 </label>
               ))}
             </div>
 
             <div className="modal-actions">
-              <Button className="outline-light" onClick={cancelChanges}>
-                Cancelar
-              </Button>
-              <Button className="dark" onClick={saveChanges}>
-                <Save size={16} /> Guardar cambios
-              </Button>
+              <Button className="outline-light" onClick={cancelChanges}>Cancelar</Button>
+              <Button className="dark" onClick={saveChanges}><Save size={16} /> Guardar cambios</Button>
             </div>
 
-            <div className="edit-tip">
-              <Camera /> Para cambiar fotos, pega una URL de imagen. En una
-              versión profesional podemos conectar carga directa de imágenes.
-            </div>
+            <div className="edit-tip"><Camera /> Para cambiar fotos, pega una URL de imagen. En una versi√≥n profesional podemos conectar carga directa de im√°genes.</div>
           </div>
         </div>
       )}
     </div>
   );
 }
+
